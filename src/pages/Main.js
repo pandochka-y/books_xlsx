@@ -42,8 +42,6 @@ const Main = {
     </div>
 
     <base-navigation
-            :currentPage="currentPage"
-            :totalPages="totalPage"
             @changePage="changePage"
             class="mb-44"
             v-if="this.sortedBooks.length && !isLoading"
@@ -64,7 +62,6 @@ const Main = {
         }
     },
     methods: {
-
         downloadXlsx() {
             const formatList = processToFormatXlsx(this.sortedBooks)
             exportBookListXlsx(formatList, this.params)
@@ -73,8 +70,8 @@ const Main = {
         changePage(page) {
             if (!this.params) return false;
             this.changeParams(page);
+            this.setCurrentPage(page)
             this.getBooks(this.params);
-            this.currentPage = page;
         },
 
         changeParams(page) {
@@ -92,26 +89,15 @@ const Main = {
                     break;
                 }
             }
-            console.log(this.objectSortBy)
-        },
-
-        async onSubmit() {
-            if (!this.query) return false;
-            if (this.query === this.params?.query && this.limit === this.params?.limit) return false;
-            const params = {
-                query: this.query,
-                limit: this.limit,
-                page: 1,
-            };
-            this.setParams(params);
-            this.getBooks(params);
         },
 
         ...Vuex.mapActions({
             getBooks: 'getBooks',
         }),
+
         ...Vuex.mapMutations({
             setParams: 'setParams',
+            setCurrentPage: 'setCurrentPage',
         })
     },
     computed: {
@@ -133,6 +119,4 @@ const Main = {
             isSearched: state => state.isSearched,
         }),
     },
-    mounted() {
-    }
 }

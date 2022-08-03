@@ -16,8 +16,4 @@ var app = new Vue({
     el: "#app",
     store,
     router,
-
-    // data: {
-    //     message: "Hello Vue!"
-    // }
 });

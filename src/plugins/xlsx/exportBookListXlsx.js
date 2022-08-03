@@ -16,17 +16,6 @@ const exportBookListXlsx = (data, query) => {
             }
         }
     }
-
-// STEP 2: Create data rows and styles
-//     let row = [
-//         { v: "№", t: "z", s: { alignment: {vertical: 'center', horizontal: 'center', } } },
-//         { v: "Автор", t: "s", s: {}, },
-//         { v: "Имя", t: "s", s: {} },
-//         { v: "Фамилия", t: "s", s: {} },
-//         { v: "Название книги", t: "s", s: {wrapText: true} },
-//     ];
-
-// STEP 3: Create worksheet with rows; Add worksheet to workbook
     const ws = wb.Sheets.Books
 
     const merge = [
@@ -57,6 +46,5 @@ const exportBookListXlsx = (data, query) => {
 
     const fileName = createFileName(query.query) || 'defaultName.xlsx'
 
-// STEP 4: Write Excel file to browser
     XLSX.writeFile(wb, fileName);
 }

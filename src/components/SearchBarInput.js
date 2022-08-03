@@ -7,11 +7,9 @@ const SearchBarInput = {
     `,
     methods: {
         onChange(e) {
-            console.log('key')
             this.$emit('input', e)
         },
         onEnter(e) {
-            console.log('key')
             this.$emit('onEnter', e)
         },
     }

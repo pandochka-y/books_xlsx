@@ -8,16 +8,9 @@ const processToFormatXlsx = (data) => {
         row.push(renderObjectXlsx(lastName))
         row.push(renderObjectXlsx(item.title))
         row.push(renderObjectXlsx(item?.first_publish_year))
-        // row.push(renderObjectXlsx(index + 1))
-        // row.push(renderObjectXlsx(item.title))
-        // row.push(renderObjectXlsx(item.body))
-        // row.push(renderObjectXlsx('testasdasdasdas'))
-        // row.push(renderObjectXlsx('tes1tasdasdasdasdas'))
         return row
     })
-    console.log(formattedData)
     return formattedData
-    // key,isbn,author_name,title,first_publish_year
 }
 
 const renderObjectXlsx = (value) => {

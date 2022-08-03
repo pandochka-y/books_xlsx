@@ -4,7 +4,7 @@ const ListBooks = {
         <list-books-item
             v-for="book of books"
             :book="book"
-            :key="book.id"
+            :key="book.key"
             :isLast="isLast(book)"
         />
         <div class="text-lg text-center"

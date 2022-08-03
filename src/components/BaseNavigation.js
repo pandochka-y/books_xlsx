@@ -2,7 +2,7 @@
 const BaseNavigation = {
     template: `
     <div class="flex items-center flex-col">
-        <div class="mb-3"><span style="" class="text-3xl">{{ currentPage }}</span> / {{ totalPages }}</div>
+        <div class="mb-3"><span style="" class="text-3xl">{{ currentPage }}</span> / {{ totalPage }}</div>
         <div class="flex ">
             <base-button
                 :text="'Prev'"
@@ -18,14 +18,6 @@ const BaseNavigation = {
 </div>
     `,
     props: {
-        currentPage: {
-            type: Number,
-            default: 1,
-        },
-        totalPages: {
-            type: Number,
-            default: 1,
-        }
     },
     methods: {
         prevPage() {
@@ -35,11 +27,17 @@ const BaseNavigation = {
         },
         nextPage() {
             let page = this.currentPage + 1;
-            if (page > this.totalPages) return false;
+            if (page > this.totalPage) return false;
             this.$emit('changePage', page);
         },
 
-
     },
+    computed: {
+
+        ...Vuex.mapState({
+            currentPage: state => state.pagination.currentPage,
+            totalPage: state => state.pagination.totalPage,
+        }),
+    }
 
 }

@@ -10,5 +10,6 @@ const store = new Vuex.Store({
     },
     modules: {
         books: moduleBooks,
+        pagination: modulePagination,
     }
 })

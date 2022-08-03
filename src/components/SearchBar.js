@@ -33,11 +33,11 @@ const SearchBar = {
             limit: 10,
             query: '',
             selectLimitOptions: [
-                { value: 10, name: 10, id: 1},
-                { value: 25, name: 25, id: 2},
-                { value: 50, name: 50, id: 3},
-                { value: 75, name: 75, id: 4},
-                { value: 100, name: 100, id: 5},
+                {value: 10, name: 10, id: 1},
+                {value: 25, name: 25, id: 2},
+                {value: 50, name: 50, id: 3},
+                {value: 75, name: 75, id: 4},
+                {value: 100, name: 100, id: 5},
             ],
         }
     },
@@ -49,6 +49,12 @@ const SearchBar = {
 
         changeLimit(e) {
             this.limit = Number(e.target.value)
+        },
+
+        getTotalPage() {
+            let total = Math.ceil(this.books.numFound / this.limit)
+            if (total === 0) return total = 1
+            this.setTotalPage(total)
         },
 
         async onSubmit() {
@@ -63,7 +69,9 @@ const SearchBar = {
                 page: 1,
             };
             this.setParams(params);
-            this.getBooks(params);
+            await this.getBooks(params);
+            // this.getCurrentPage()
+            this.getTotalPage()
         },
 
         ...Vuex.mapActions({
@@ -72,12 +80,15 @@ const SearchBar = {
         ...Vuex.mapMutations({
             setParams: 'setParams',
             setSearched: 'setSearched',
+            setCurrentPage: 'setCurrentPage',
+            setTotalPage: 'setTotalPage',
         })
     },
     computed: {
 
         ...Vuex.mapState({
             params: state => state.books.params,
+            books: state => state.books.books,
             isSearched: state => state.isSearched,
         }),
     }
