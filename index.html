@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="public/style/style.css" rel="stylesheet">
+    <script src="https://unpkg.com/vue@2"></script>
+    <script src="https://unpkg.com/vuex@2.0.0"></script>
+    <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.18.10/package/dist/xlsx.full.min.js"></script>
+    <title>Search Books</title>
+</head>
+
+
+<body class="bg-gray-100">
+
+
+<!--    <button onclick="exportBookListXlsx()">DOWNLOAD</button>-->
+<div id="app">
+    <app></app>
+</div>
+
+<style>
+
+
+</style>
+
+
+<script src="src/vendor/xlsx.min.js"></script>
+<script src="src/plugins/xlsx/helpers/createFileName.js"></script>
+<script src="src/plugins/xlsx/exportBookListXlsx.js"></script>
+<script src="src/plugins/xlsx/helpers/processToFormatXlsx.js"></script>
+<script src="src/helpers/instance.js"></script>
+<script src="src/helpers/handlerEmptyFields.js"></script>
+<script src="src/helpers/sortingMethods.js"></script>
+<script src="src/api/fetchingBooks.js"></script>
+<script src="src/components/BaseNavigation.js"></script>
+<script src="src/components/BaseButton.js"></script>
+<script src="src/components/ListBooks.js"></script>
+<script src="src/components/ListBooksItem.js"></script>
+<script src="src/components/SearchBar.js"></script>
+<script src="src/components/SearchBarInput.js"></script>
+<script src="src/components/BaseSelect.js"></script>
+<script src="src/components/SearchBarButton.js"></script>
+<script src="src/components/TheHeader.js"></script>
+<script src="src/components/SpinnerLoader.js"></script>
+<script src="src/pages/Main.js"></script>
+<script src="src/App.js"></script>
+<script src="src/store/modules/moduleBooks.js"></script>
+<script src="src/router/index.js"></script>
+<script src="src/store/index.js"></script>
+<script src="src/index.js"></script>
+</body>
+</html>

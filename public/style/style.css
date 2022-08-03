@@ -1,0 +1,83 @@
+:focus-visible {
+    outline-color: #FF7300;
+}
+.pr-17px {
+    padding-right: 16px;
+}
+.block-animation {
+    transform: translateY(20vh);
+    will-change: transform;
+}
+.searched {
+    transition: transform .5s;
+    transform: translateY(0);
+
+}
+.title {
+    transform: translateY(0);
+}
+.searched .title {
+    transform: translateY(50px);
+    transition: transform .5s;
+}
+#hideArrow {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+.button-hover:hover {
+    border-color: #FF7300;
+    color: #FF7300;
+}
+
+.spinner-container {
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    text-align: center;
+    position: relative;
+}
+
+.spinner {
+    margin: auto;
+    border: 2px solid #ff73001f;
+    /*
+    change to dotted for something cool.
+    change width to 1px for tapered bar
+    */
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    position: absolute;
+    top: 45%;
+    border-radius: 50%;
+    border-right: 2px solid #FF7300;
+    text-align: center;
+    animation-name: spin;
+    animation-duration: 900ms;
+    animation-iteration-count: infinite;
+    /*animation-timing-function: linear; /*linear spin */
+    animation-timing-function: cubic-bezier(0.53, 0.21, 0.29, 0.67);
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    /*50% {width:24px;height:24px} /*shrinking effect*/
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    /*50% {width:24px;height:24px} /*shrinking effect*/
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
