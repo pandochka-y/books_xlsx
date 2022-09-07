@@ -14,8 +14,8 @@ const BaseSelect = {
     `,
     props: {
         title: {
-          type: String,
-          default: "Select from the list"
+            type: String,
+            default: "Select from the list"
         },
         options: {
             type: Array,

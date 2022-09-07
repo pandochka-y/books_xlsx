@@ -1,7 +1,7 @@
 
 const store = new Vuex.Store({
     state: {
-      isSearched: false,
+        isSearched: false,
     },
     mutations: {
         setSearched(state, bool) {
